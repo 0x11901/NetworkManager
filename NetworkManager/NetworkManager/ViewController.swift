@@ -7,19 +7,15 @@
 //
 
 import UIKit
+import Alamofire
 
 class ViewController: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
+    @IBOutlet weak var statusLabel: UILabel!
+
+    @IBAction func requestButtonAction(_ sender: UIButton) {
+        NetworkManager.shared.get(urlString: "https://raw.githubusercontent.com/0x11901/super-train/master/test.json", parameters: nil)
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
-    }
-
-
+    
 }
 

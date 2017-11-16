@@ -13,5 +13,6 @@ target 'NetworkManager' do
   end
 
   pod 'Alamofire'
+  pod 'XCGLogger', :inhibit_warnings => true
 
 end

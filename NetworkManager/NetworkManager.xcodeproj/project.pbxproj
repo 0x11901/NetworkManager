@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		571314A42043BA426E89BA2B /* Pods_NetworkManager.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9D86235B190575EFE4EEE19B /* Pods_NetworkManager.framework */; };
 		BCEC20A6005C6824F2A35655 /* Pods_NetworkManagerTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 073B15529D3BF0128EFC505E /* Pods_NetworkManagerTests.framework */; };
+		F806D8751FBDE587006EAAE1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806D8741FBDE587006EAAE1 /* NetworkManager.swift */; };
+		F806D8761FBDE587006EAAE1 /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = F806D8741FBDE587006EAAE1 /* NetworkManager.swift */; };
 		F8BC0BA11FBDABAB00D56E6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC0BA01FBDABAB00D56E6D /* AppDelegate.swift */; };
 		F8BC0BA31FBDABAB00D56E6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F8BC0BA21FBDABAB00D56E6D /* ViewController.swift */; };
 		F8BC0BA61FBDABAB00D56E6D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F8BC0BA41FBDABAB00D56E6D /* Main.storyboard */; };
@@ -34,6 +36,7 @@
 		8542DC91D596AB17C14F46AA /* Pods-NetworkManager.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.debug.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.debug.xcconfig"; sourceTree = "<group>"; };
 		9D86235B190575EFE4EEE19B /* Pods_NetworkManager.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_NetworkManager.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3281BAD1537FCA3B0E52A01 /* Pods-NetworkManager.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-NetworkManager.release.xcconfig"; path = "Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager.release.xcconfig"; sourceTree = "<group>"; };
+		F806D8741FBDE587006EAAE1 /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		F8BC0B9D1FBDABAB00D56E6D /* NetworkManager.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = NetworkManager.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F8BC0BA01FBDABAB00D56E6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F8BC0BA21FBDABAB00D56E6D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -111,6 +114,7 @@
 			children = (
 				F8BC0BA01FBDABAB00D56E6D /* AppDelegate.swift */,
 				F8BC0BA21FBDABAB00D56E6D /* ViewController.swift */,
+				F806D8741FBDE587006EAAE1 /* NetworkManager.swift */,
 				F8BC0BA41FBDABAB00D56E6D /* Main.storyboard */,
 				F8BC0BA71FBDABAB00D56E6D /* Assets.xcassets */,
 				F8BC0BA91FBDABAB00D56E6D /* LaunchScreen.storyboard */,
@@ -259,10 +263,14 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-NetworkManager/Pods-NetworkManager-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/ObjcExceptionBridging/ObjcExceptionBridging.framework",
+				"${BUILT_PRODUCTS_DIR}/XCGLogger/XCGLogger.framework",
 			);
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/ObjcExceptionBridging.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/XCGLogger.framework",
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -339,6 +347,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F806D8751FBDE587006EAAE1 /* NetworkManager.swift in Sources */,
 				F8BC0BA31FBDABAB00D56E6D /* ViewController.swift in Sources */,
 				F8BC0BA11FBDABAB00D56E6D /* AppDelegate.swift in Sources */,
 			);
@@ -348,6 +357,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F806D8761FBDE587006EAAE1 /* NetworkManager.swift in Sources */,
 				F8BC0BB61FBDABAB00D56E6D /* NetworkManagerTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
