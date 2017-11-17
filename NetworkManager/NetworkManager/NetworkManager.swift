@@ -17,17 +17,7 @@ class NetworkManager {
         let instance = NetworkManager()
         return instance
     }()
-    
-    public func get(urlString: String, parameters: [String: Any]?) {
-        Alamofire.request(urlString, method: .get, parameters: parameters, encoding: JSONEncoding.default).responseJSON { (response) in
-            switch response.result {
-            case .success(let data):
-                console.debug(data)
-            case .failure(let e):
-                console.debug(e)
-            }
-        }
-    }
+
 }
 
 
@@ -106,35 +96,38 @@ extension Result {
             break
         }
     }
+    
 }
 
 extension NetworkManager {
     
     func parseResult(result: Result<Any>) -> Result<Any> {
         return result
-            .flatMap { $0 as? [String: Any] }
-//            .flatMap(self.checkJSONDict) // 解析错误信息并进行打印，然后继续向下传递，之后业务方可自由选择是否进一步处理错误
-//            .flatMap { $0 }
+            .flatMap { $0 as? [String: Any] } //如有需要可做进一步处理
     }
 
 }
 
+
+/// 显式地声明Request遵守Cancellable协议
 protocol Cancellable {
     func cancel()
 }
 
+// MARK: - Request本来就实现了cancel方法
 extension Request: Cancellable {}
 
 extension NetworkManager {
     
     @discardableResult
-    func getDataWithAPI(url: String,
-                          parameters: [String: Any]? = nil
+    func getDataWithURL(url: String,
+                          parameters: [String: Any]? = nil,
+                          networkCompletionHandler: @escaping (Result<Any>) -> Void
                           ) -> Cancellable? {
         return Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
-            let s = self.parseResult(result: $0.result)
-            console.debug(s)
+            networkCompletionHandler(self.parseResult(result: $0.result))
         }
     }
-//    networkCompletionHandler: ()->Result
+
 }
+
