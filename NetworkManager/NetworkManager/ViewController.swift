@@ -10,13 +10,17 @@ import UIKit
 import Alamofire
 
 class ViewController: UIViewController {
-
+    
     @IBOutlet weak var statusLabel: UILabel!
-
+    
     @IBAction func requestButtonAction(_ sender: UIButton) {
-        NetworkManager.shared.getDataWithURL(url: "https://raw.githubusercontent.com/0x11901/super-train/master/test.json", networkCompletionHandler: {
-            console.debug($0.value)
-        })
+        
+        NetworkManager.shared.get(url: "https://raw.githubusercontent.com/0x11901/super-train/master/test.jsonss") {
+                if let v = $0.value {
+                    print(v)
+                }
+        }
+        
     }
     
 }

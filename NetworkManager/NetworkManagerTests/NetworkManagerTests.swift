@@ -21,16 +21,16 @@ class NetworkManagerTests: XCTestCase {
         super.tearDown()
     }
     
-    func testExample() {
-        // This is an example of a functional test case.
-        // Use XCTAssert and related functions to verify your tests produce the correct results.
-    }
-    
-    func testPerformanceExample() {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
+    func testgetDataWithURL_invalidURL_failureResult() {
+        let expectation = XCTestExpectation(description: "测试无效URL")
+        let timeout = 15 as TimeInterval
+        NetworkManager
+            .shared
+            .getDataWithURL(url: "https://raw.githubusercontent.com/0x11901/super-train/master/test.jsonsss") {
+                expectation.fulfill()
+                XCTAssertTrue($0.isFailure)
         }
+        waitForExpectations(timeout: timeout, handler: nil)
     }
     
 }

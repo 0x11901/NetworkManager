@@ -120,11 +120,21 @@ extension Request: Cancellable {}
 extension NetworkManager {
     
     @discardableResult
-    func getDataWithURL(url: String,
+    func get(url: String,
                           parameters: [String: Any]? = nil,
                           networkCompletionHandler: @escaping (Result<Any>) -> Void
                           ) -> Cancellable? {
         return Alamofire.request(url, method: .get, parameters: parameters).responseJSON {
+            networkCompletionHandler(self.parseResult(result: $0.result))
+        }
+    }
+    
+    @discardableResult
+    func post(url: String,
+                        parameters: [String: Any]? = nil,
+                        networkCompletionHandler: @escaping (Result<Any>) -> Void
+        ) -> Cancellable? {
+        return Alamofire.request(url, method: .post, parameters: parameters).responseJSON {
             networkCompletionHandler(self.parseResult(result: $0.result))
         }
     }
